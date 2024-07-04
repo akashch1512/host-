@@ -1,11 +1,3 @@
-# Tap-to-Earn Game for Telegram
-
-## Project Description
-Develop a simple Tap-to-Earn game for Telegram that uses Web3 technology to reward players with cryptocurrencies. The game is inspired by Shahnameh, where players must help Sohrab complete the seven trials to reach Rostam.
-
-## Project Goal
-Create an engaging Telegram game that integrates blockchain technology to provide cryptocurrency rewards to players.
-
 ## Key Features
 1. **Telegram Bot:** A bot that allows users to participate in the game by sending commands.
 2. **Web3 Integration:** Connect to a smart contract on the Ethereum network to handle rewards.
