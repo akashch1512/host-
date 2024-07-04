@@ -18,12 +18,18 @@ body {
 }
 
 .bg-gradient-main {
-  background: linear-gradient(to top, #1f9342, #d5a72a);
+  background: url('./images/file-K0eijCKhX0pDOEHjPedRe694.webp') no-repeat center center;
+  background-size: 12;
+  margin: 10px;
+  /* height: vh;
+  width: 100vw; */
+  overflow: hidden;
 }
 
-.bg-gradient-overlay {
+
+/* .bg-gradient-overlay {
   background: linear-gradient(180deg, rgb(6, 2, 2) 0%, rgba(0,0,0,1) 40%, rgba(0,212,255,0) 100%);
-}
+} */
 
 .radial-gradient-overlay {
   position: absolute;
