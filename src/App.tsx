@@ -2,10 +2,11 @@ import { useEffect, useState } from 'react';
 import './index.css';
 import Arrow from './icons/Arrow';
 import { bear, coin, highVoltage, notcoin, rocket, trophy ,Genie } from './images';
+import tapSound from './sounds/tapsound.mp3';
 
 const App = () => {
   const [points, setPoints] = useState(0);
-  const [energy, setEnergy] = useState(2532);
+  const [energy, setEnergy] = useState(2652);
   const [clicks, setClicks] = useState<{ id: number, x: number, y: number }[]>([]);
   const pointsToAdd = 2;
   const energyToReduce = 2;
@@ -21,6 +22,10 @@ const App = () => {
     setPoints(points + pointsToAdd);
     setEnergy(energy - energyToReduce < 0 ? 0 : energy - energyToReduce);
     setClicks([...clicks, { id: Date.now(), x, y }]);
+
+    // Play sound
+    const audio = new Audio(tapSound);
+    audio.play();
   };
 
   const handleAnimationEnd = (id: number) => {
@@ -63,7 +68,7 @@ const App = () => {
         </div>
 
 
-        <div className="fixed bottom-0 left-0 w-full px-4 pb-4 z-10">
+        <div className="fixed bottom-0 left-200 w-1/3 px-4 pb-4 z-10">
           <div className="w-full flex justify-between gap-2">
             <div className="w-1/3 flex items-center justify-start max-w-32">
               <div className="flex items-center justify-center">
