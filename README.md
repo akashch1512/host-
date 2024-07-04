@@ -38,7 +38,7 @@ Create an engaging Telegram game that integrates blockchain technology to provid
 Refer to `run_pro.txt` for detailed instructions on running the project.
 
 ## Deployment
-The project is deployed/hosted on Netlify. You can access it via [this link]([(https://falcomtaptapgame.netlify.app/)]).
+The project is deployed/hosted on Netlify. You can access it via https://t.me/Arshian_Pahlevan_Bot/FalconTapGAme
 
 ## Branch
 Used branch: `final-version`
