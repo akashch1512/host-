@@ -161,7 +161,83 @@ To get started with either the initial setup or the final version, follow these 
     Navigate to localhost to see the final version of the application.
 
 
+#new reqirment's
+### Game Concept: Tap-to-Earn Based on Shahnameh
 
+#### Overview
+The game is a tap-to-earn style game where players progress through 7 levels inspired by the 7 labors of Rostam from Shahnameh. The player starts as a young warrior and progresses to become a wise old warrior, learning about Shahnameh along the way. The game is designed to be completed in 31 days.
+
+#### Game Mechanics
+- Tapping: Players tap to earn coins.
+- Stamina: Players have a stamina limit that they can boost using coins.
+- Inviting Friends: Players earn coins by inviting friends.
+- Social Media: Players earn coins by following social media accounts.
+
+#### Levels and Coins Required
+1. Level 1: 1 million coins
+2. Level 2: 10 million coins
+3. Level 3: 200 million coins
+4. Level 4: 300 million coins
+5. Level 5: 500 million coins
+6. Level 6: 800 million coins
+7. Level 7: 1300 million coins
+
+#### Time Allocation for Each Level
+- Level 1: 1 day
+- Level 2: 2 days
+- Level 3: 6 days
+- Level 4: 6 days
+- Level 5: 6 days
+- Level 6: 5 days
+- Level 7: 5 days
+
+#### Cards and Mining
+- Regions: Players can unlock regions (Asia, Europe, Africa, Americas, Oceania).
+- Countries: Each region has multiple countries (e.g., Iran, China, India, etc.).
+- Cities: Each country has multiple cities (e.g., Tehran, Isfahan, etc.).
+- Card Upgrades: Each city card can be upgraded to level 21.
+- Earnings: Upgrading cards increases the hourly profit.
+
+#### Example Cards
+1. Regional Card: Asia
+   - Cost: 1 million coins
+   - Unlocks: Iran, China, India, Japan, South Korea
+
+2. Country Card: Iran
+   - Cost: 500,000 coins
+   - Unlocks: Tehran, Isfahan, Shiraz, Mashhad, Tabriz
+
+3. City Card: Tehran
+   - Base Cost: 100,000 coins
+   - Hourly Profit: Starts at 1,000 coins/hour
+   - Upgrades: Each level increases profit by 10%
+   - Max Level: 21
+
+#### Design Elements
+- Character Progression: From young warrior to wise old warrior.
+- Level 1 Design: Character with a lion, traditional Persian background.
+- Level 7 Design: Character as a wise warrior, battling the White Demon.
+
+#### Visuals and UI
+- Clean, minimal design inspired by Hamster Kombat.
+- Vertical (portrait) layout.
+- Buttons for boosting stamina, inviting friends, and social media follow at the bottom.
+- Educational pop-ups about Shahnameh.
+
+#### Technical Details
+- Platform: Telegram bot with Web3 integration.
+- Tools: React for front-end, Node.js for back-end.
+- Package.json: Updated and compatible with Node.js v18.20.3 and npm v10.8.1.
+
+### Next Steps
+1. Implement Tapping Mechanics: Create the tap-to-earn functionality.
+2. Stamina and Boosts: Develop the stamina system and boosting functionality.
+3. Friend Invites and Social Media Integration: Implement coin rewards for social interactions.
+4. Card System: Build the card purchasing and upgrading system.
+5. UI/UX Design: Create a clean, minimal interface similar to Hamster Kombat.
+6. Educational Content: Integrate educational elements about Shahnameh.
+
+This should give your team a comprehensive overview of the game concept, mechanics, and design elements required to bring the game to life. If you need any additional details or further adjustments, please let me know!
 
 
 
