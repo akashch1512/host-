@@ -1,14 +1,14 @@
 import { useEffect, useState } from 'react';
 import './index.css';
-/* import Arrow from './icons/Arrow';
-import { bear, coin, highVoltage, notcoin, rocket, trophy ,Genie } from './images'; */
-import { bear, coin, highVoltage, notcoin, rocket } from './images';
+import Arrow from './icons/Arrow';
+import { bear, coin, highVoltage, notcoin, rocket, trophy, Genie } from './images';
 import tapSound from './sounds/tapsound.mp3';
 
 const App = () => {
   const [points, setPoints] = useState(0);
   const [energy, setEnergy] = useState(2652);
   const [clicks, setClicks] = useState<{ id: number, x: number, y: number }[]>([]);
+  const [isPressed, setIsPressed] = useState(false);
   const pointsToAdd = 2;
   const energyToReduce = 2;
 
@@ -27,6 +27,10 @@ const App = () => {
     // Play sound
     const audio = new Audio(tapSound);
     audio.play();
+
+    // Add pressed effect
+    setIsPressed(true);
+    setTimeout(() => setIsPressed(false), 100); // Reset after 100ms
   };
 
   const handleAnimationEnd = (id: number) => {
@@ -44,30 +48,20 @@ const App = () => {
 
   return (
     <div className="bg-gradient-main min-h-screen px-4 flex flex-col items-center text-white font-medium">
-
       <div className="absolute inset-0 h-1/2 bg-gradient-overlay z-0"></div>
       <div className="absolute inset-0 flex items-center justify-center z-0">
         <div className="radial-gradient-overlay"></div>
       </div>
 
       <div className="w-full z-10 min-h-screen flex flex-col items-center text-white">
-
         <div className="fixed top-0 left-0 w-full px-4 pt-8 z-10 flex flex-col items-center text-white">
-          {/* <div className="w-full cursor-pointer"> */}
-            {/* <div className="bg-[#1f1f1f] text-center py-2 rounded-xl"> */}
-              {/* <p className="text-lg">Join squad <Arrow size={18} className="ml-0 mb-1 inline-block" /></p> */}
-            {/* </div> */}
-          {/* </div> */}
           <div className="mt-12 text-5xl font-bold flex items-center">
             <img src={coin} width={44} height={44} />
             <span className="ml-2">{points.toLocaleString()}</span>
           </div>
           <div className="text-base mt-2 flex items-center">
-            {/* <img src={trophy} width={24} height={24} /> */}
-            {/* <span className="ml-1">Gold <Arrow size={18} className="ml-0 mb-1 inline-block" /></span> */}
           </div>
         </div>
-
 
         <div className="fixed bottom-0 left-200 w-1/3 px-4 pb-4 z-10">
           <div className="w-full flex justify-between gap-2">
@@ -104,9 +98,11 @@ const App = () => {
           </div>
         </div>
 
-
         <div className="flex-grow flex items-center justify-center">
-          <div className="relative mt-4" onClick={handleClick}>
+          <div 
+            className={`relative mt-4 ${isPressed ? 'pressed' : ''}`} 
+            onClick={handleClick}
+          >
             <img src={notcoin} width={300} height={256} alt="notcoin" />
             {clicks.map((click) => (
               <div
@@ -124,7 +120,6 @@ const App = () => {
             ))}
           </div>
         </div>
-
       </div>
     </div>
   );
