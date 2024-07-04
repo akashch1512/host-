@@ -52,7 +52,7 @@ const App = () => {
 
       <div className="w-full z-10 min-h-screen flex flex-col items-center text-white">
 
-        <div className="fixed top-15 left-0 w-full px-4 pt-8 z-10 flex flex-col items-center text-white">
+        <div className="fixed top-10 left-0 w-full px-4 pt-8 z-10 flex flex-col items-center text-white">
           {/* <div className="w-full cursor-pointer"> */}
             {/* <div className="bg-[#1f1f1f] text-center py-2 rounded-xl"> */}
               {/* <p className="text-lg">Join squad <Arrow size={18} className="ml-0 mb-1 inline-block" /></p> */}
@@ -107,7 +107,7 @@ const App = () => {
 
         <div className="flex-grow flex items-center justify-center">
           <div className="relative mt-4" onClick={handleClick}>
-            <img src={notcoin} width={300} height={256} alt="notcoin" />
+            <img src={notcoin} width={250} height={230} alt="notcoin" />
             {clicks.map((click) => (
               <div
                 key={click.id}
