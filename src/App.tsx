@@ -69,7 +69,7 @@ const App = () => {
         </div>
 
 
-        <div className="fixed bottom-0 left-200 w-1/6 px-4 pb-4 z-10">
+        <div className="fixed bottom-0 left-200 w-center px-4 pb-4 z-10">
           <div className="w-full flex justify-between gap-2">
             <div className="w-1/3 flex items-center justify-start max-w-32">
               <div className="flex items-center justify-center">
