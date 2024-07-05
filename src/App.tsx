@@ -8,8 +8,8 @@ const App = () => {
   const [energy, setEnergy] = useState(2652);
   const [clicks, setClicks] = useState<{ id: number, x: number, y: number }[]>([]);
   const [notcoinPressed, setNotcoinPressed] = useState(false);
-  const pointsToAdd = 2;
-  const energyToReduce = 2;
+  const pointsToAdd = 12;
+  const energyToReduce = 12;
 
   const handleClick = (x: number, y: number, pointsToAdd: number) => {
     if (energy - energyToReduce < 0) {
