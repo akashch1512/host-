@@ -11,13 +11,10 @@ const App = () => {
   const pointsToAdd = 2;
   const energyToReduce = 2;
 
-  const handleClick = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+  const handleClick = (x: number, y: number) => {
     if (energy - energyToReduce < 0) {
       return;
     }
-    const rect = e.currentTarget.getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
 
     setPoints(points + pointsToAdd);
     setEnergy(energy - energyToReduce < 0 ? 0 : energy - energyToReduce);
@@ -36,6 +33,24 @@ const App = () => {
 
   const handleAnimationEnd = (id: number) => {
     setClicks((prevClicks) => prevClicks.filter(click => click.id !== id));
+  };
+
+  // Handle mouse click
+  const handleMouseClick = (e: React.MouseEvent<HTMLDivElement>) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    const x = e.clientX - rect.left;
+    const y = e.clientY - rect.top;
+    handleClick(x, y);
+  };
+
+  // Handle touch start (for mobile)
+  const handleTouchStart = (e: React.TouchEvent<HTMLDivElement>) => {
+    e.preventDefault();
+    const touch = e.touches[0];
+    const rect = e.currentTarget.getBoundingClientRect();
+    const x = touch.clientX - rect.left;
+    const y = touch.clientY - rect.top;
+    handleClick(x, y);
   };
 
   // useEffect hook to restore energy over time
@@ -102,7 +117,7 @@ const App = () => {
         </div>
 
         <div className="flex-grow flex items-center justify-center">
-          <div className="relative mt-4" onClick={handleClick}>
+          <div className="relative mt-4" onClick={handleMouseClick} onTouchStart={handleTouchStart}>
             <img src={notcoin} width={150} height={200} className={notcoinPressed ? "notcoin-pressed" : ""} alt="notcoin" />
             {clicks.map((click) => (
               <div
@@ -115,7 +130,7 @@ const App = () => {
                 }}
                 onAnimationEnd={() => handleAnimationEnd(click.id)}
               >
-                2 
+                {pointsToAdd}
               </div>
             ))}
           </div>
