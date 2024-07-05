@@ -127,7 +127,8 @@ const App = () => {
                 <img src={highVoltage} width={44} height={44} alt="High Voltage" />
                 <div className="ml-2 text-left">
                   <span className="text-white text-2xl font-bold block">{energy}</span>
-                  <span className="text-white text-large opacity-75">/ 6500</span>
+                  <span className="text-white text-large opacity-75">{level_points}</span>
+
                 </div>
               </div>
             </div>
