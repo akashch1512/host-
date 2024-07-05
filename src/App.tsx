@@ -10,6 +10,7 @@ const App = () => {
   const [notcoinPressed, setNotcoinPressed] = useState(false);
   const pointsToAdd = 12;
   const energyToReduce = 12;
+  const level_points = 1000000;
 
   const handleClick = (x: number, y: number, pointsToAdd: number) => {
     if (energy - energyToReduce < 0) {
@@ -94,7 +95,7 @@ const App = () => {
   // useEffect hook to restore energy over time
   useEffect(() => {
     const interval = setInterval(() => {
-      setEnergy((prevEnergy) => Math.min(prevEnergy + 1, 6500));
+      setEnergy((prevEnergy) => Math.min(prevEnergy + 1, level_points ));
     }, 100); // Restore 10 energy points every second
 
     return () => clearInterval(interval); // Clear interval on component unmount
