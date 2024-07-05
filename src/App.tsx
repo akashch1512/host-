@@ -11,7 +11,7 @@ const App = () => {
   const pointsToAdd = 2;
   const energyToReduce = 2;
 
-  const handleClick = (x: number, y: number) => {
+  const handleClick = (x: number, y: number, pointsToAdd: number) => {
     if (energy - energyToReduce < 0) {
       return;
     }
@@ -40,17 +40,55 @@ const App = () => {
     const rect = e.currentTarget.getBoundingClientRect();
     const x = e.clientX - rect.left;
     const y = e.clientY - rect.top;
-    handleClick(x, y);
+    handleClick(x, y, 2); // Add 2 points for mouse click
   };
 
   // Handle touch start (for mobile)
   const handleTouchStart = (e: React.TouchEvent<HTMLDivElement>) => {
     e.preventDefault();
-    const touch = e.touches[0];
-    const rect = e.currentTarget.getBoundingClientRect();
-    const x = touch.clientX - rect.left;
-    const y = touch.clientY - rect.top;
-    handleClick(x, y);
+
+    // Get the number of active touches
+    const activeTouches = e.touches.length;
+
+    // Handle based on the number of touches
+    switch (activeTouches) {
+      case 1:
+        const touch1 = e.touches[0];
+        const rect1 = e.currentTarget.getBoundingClientRect();
+        const x1 = touch1.clientX - rect1.left;
+        const y1 = touch1.clientY - rect1.top;
+        handleClick(x1, y1, 2); // Add 2 points for one finger touch
+        break;
+      case 2:
+        const touch2_1 = e.touches[0];
+        const touch2_2 = e.touches[1];
+        const rect2 = e.currentTarget.getBoundingClientRect();
+        const x2_1 = touch2_1.clientX - rect2.left;
+        const y2_1 = touch2_1.clientY - rect2.top;
+        const x2_2 = touch2_2.clientX - rect2.left;
+        const y2_2 = touch2_2.clientY - rect2.top;
+        handleClick(x2_1, y2_1, 4); // Add 4 points for two finger touch
+        handleClick(x2_2, y2_2, 4); // Add 4 points for two finger touch
+        break;
+      case 3:
+        const touch3_1 = e.touches[0];
+        const touch3_2 = e.touches[1];
+        const touch3_3 = e.touches[2];
+        const rect3 = e.currentTarget.getBoundingClientRect();
+        const x3_1 = touch3_1.clientX - rect3.left;
+        const y3_1 = touch3_1.clientY - rect3.top;
+        const x3_2 = touch3_2.clientX - rect3.left;
+        const y3_2 = touch3_2.clientY - rect3.top;
+        const x3_3 = touch3_3.clientX - rect3.left;
+        const y3_3 = touch3_3.clientY - rect3.top;
+        handleClick(x3_1, y3_1, 6); // Add 6 points for three finger touch
+        handleClick(x3_2, y3_2, 6); // Add 6 points for three finger touch
+        handleClick(x3_3, y3_3, 6); // Add 6 points for three finger touch
+        break;
+      default:
+        // Handle other cases if needed
+        break;
+    }
   };
 
   // useEffect hook to restore energy over time
