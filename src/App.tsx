@@ -8,7 +8,7 @@ const App = () => {
   const [energy, setEnergy] = useState(2652);
   const [clicks, setClicks] = useState<{ id: number, x: number, y: number }[]>([]);
   const [notcoinPressed, setNotcoinPressed] = useState(false);
-  const pointsToAdd = 12;
+  const pointsToAdd = 2;
   const energyToReduce = 12;
   const level_points = 1000000;
 
@@ -58,7 +58,7 @@ const App = () => {
         const rect1 = e.currentTarget.getBoundingClientRect();
         const x1 = touch1.clientX - rect1.left;
         const y1 = touch1.clientY - rect1.top;
-        handleClick(x1, y1, 2); // Add 2 points for one finger touch
+        handleClick(x1, y1, 0); // Add 2 points for one finger touch
         break;
       case 2:
         const touch2_1 = e.touches[0];
@@ -68,8 +68,8 @@ const App = () => {
         const y2_1 = touch2_1.clientY - rect2.top;
         const x2_2 = touch2_2.clientX - rect2.left;
         const y2_2 = touch2_2.clientY - rect2.top;
-        handleClick(x2_1, y2_1, 4); // Add 4 points for two finger touch
-        handleClick(x2_2, y2_2, 4); // Add 4 points for two finger touch
+        handleClick(x2_1, y2_1, 2); // Add 4 points for two finger touch
+        handleClick(x2_2, y2_2, 2); // Add 4 points for two finger touch
         break;
       case 3:
         const touch3_1 = e.touches[0];
@@ -82,9 +82,9 @@ const App = () => {
         const y3_2 = touch3_2.clientY - rect3.top;
         const x3_3 = touch3_3.clientX - rect3.left;
         const y3_3 = touch3_3.clientY - rect3.top;
-        handleClick(x3_1, y3_1, 6); // Add 6 points for three finger touch
-        handleClick(x3_2, y3_2, 6); // Add 6 points for three finger touch
-        handleClick(x3_3, y3_3, 6); // Add 6 points for three finger touch
+        handleClick(x3_1, y3_1, 4); // Add 6 points for three finger touch
+        handleClick(x3_2, y3_2, 4); // Add 6 points for three finger touch
+        handleClick(x3_3, y3_3, 4); // Add 6 points for three finger touch
         break;
       default:
         // Handle other cases if needed
@@ -127,8 +127,7 @@ const App = () => {
                 <img src={highVoltage} width={44} height={44} alt="High Voltage" />
                 <div className="ml-2 text-left">
                   <span className="text-white text-2xl font-bold block">{energy}</span>
-                  <span className="text-white text-large opacity-75">{level_points}</span>
-
+                  <span className="text-white text-large opacity-75">/ 6500</span>
                 </div>
               </div>
             </div>
