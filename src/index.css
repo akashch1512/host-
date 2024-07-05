@@ -18,12 +18,12 @@ body {
 }
 
 .bg-gradient-main {
-  background: url('./images/file-K0eijCKhX0pDOEHjPedRe694.webp') no-repeat center center;
-  background-size: 2;
+  background: url('./images/file-K0eijCKhX0pDOEHjPedRe694.jpeg') no-repeat center center;
+  background-size: cover; /* This will make the image cover the entire background */
   margin: 12px;
-  /* height: vh;
-  width: 100vw; */
-  overflow: hidden;
+  height: 100vh;
+  width: 100vw; /* Changed to 100vw to cover the full width of the viewport */
+  overflow: hidden; 
 }
 
 
@@ -31,9 +31,9 @@ body {
   background: linear-gradient(180deg, rgb(6, 2, 2) 0%, rgba(0,0,0,1) 40%, rgba(0,212,255,0) 100%);
 } */
 
-.radial-gradient-overlay {
+/* .radial-gradient-overlay {
   position: absolute;
   width: 100%;
   height: 100%;
   background: radial-gradient(circle, rgba(250, 214, 92, 0.8) 0%, rgba(250, 214, 92, 0) 60%);
-}
+} */
