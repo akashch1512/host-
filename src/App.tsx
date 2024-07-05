@@ -45,62 +45,61 @@ const App = () => {
   };
 
   // Handle touch start (for mobile)
- const handleTouchStart = (e: React.TouchEvent<HTMLDivElement>) => {
-  e.preventDefault();
+  const handleTouchStart = (e: React.TouchEvent<HTMLDivElement>) => {
+    e.preventDefault();
 
-  // Deduct 2 points for any touch event
-  const pointsToDeduct = 2;
-  setPoints(points => Math.max(points - pointsToDeduct, 0));
+    // Deduct 2 points for any touch event
+    const pointsToDeduct = 2;
+    setPoints(points => Math.max(points - pointsToDeduct, 0));
 
-  // Get the number of active touches
-  const activeTouches = e.touches.length;
+    // Get the number of active touches
+    const activeTouches = e.touches.length;
 
-  // Handle based on the number of touches
-  switch (activeTouches) {
-    case 1:
-      const touch1 = e.touches[0];
-      const rect1 = e.currentTarget.getBoundingClientRect();
-      const x1 = touch1.clientX - rect1.left;
-      const y1 = touch1.clientY - rect1.top;
-      handleClick(x1, y1, 2); // Add 2 points for one finger touch
-      break;
-    case 2:
-      const touch2_1 = e.touches[0];
-      const touch2_2 = e.touches[1];
-      const rect2 = e.currentTarget.getBoundingClientRect();
-      const x2_1 = touch2_1.clientX - rect2.left;
-      const y2_1 = touch2_1.clientY - rect2.top;
-      const x2_2 = touch2_2.clientX - rect2.left;
-      const y2_2 = touch2_2.clientY - rect2.top;
-      handleClick(x2_1, y2_1, 4); // Add 4 points for two finger touch
-      handleClick(x2_2, y2_2, 4); // Add 4 points for two finger touch
-      break;
-    case 3:
-      const touch3_1 = e.touches[0];
-      const touch3_2 = e.touches[1];
-      const touch3_3 = e.touches[2];
-      const rect3 = e.currentTarget.getBoundingClientRect();
-      const x3_1 = touch3_1.clientX - rect3.left;
-      const y3_1 = touch3_1.clientY - rect3.top;
-      const x3_2 = touch3_2.clientX - rect3.left;
-      const y3_2 = touch3_2.clientY - rect3.top;
-      const x3_3 = touch3_3.clientX - rect3.left;
-      const y3_3 = touch3_3.clientY - rect3.top;
-      handleClick(x3_1, y3_1, 6); // Add 6 points for three finger touch
-      handleClick(x3_2, y3_2, 6); // Add 6 points for three finger touch
-      handleClick(x3_3, y3_3, 6); // Add 6 points for three finger touch
-      break;
-    default:
-      // Handle other cases if needed
-      break;
-  }
-};
-
+    // Handle based on the number of touches
+    switch (activeTouches) {
+      case 1:
+        const touch1 = e.touches[0];
+        const rect1 = e.currentTarget.getBoundingClientRect();
+        const x1 = touch1.clientX - rect1.left;
+        const y1 = touch1.clientY - rect1.top;
+        handleClick(x1, y1, 2); // Add 2 points for one finger touch
+        break;
+      case 2:
+        const touch2_1 = e.touches[0];
+        const touch2_2 = e.touches[1];
+        const rect2 = e.currentTarget.getBoundingClientRect();
+        const x2_1 = touch2_1.clientX - rect2.left;
+        const y2_1 = touch2_1.clientY - rect2.top;
+        const x2_2 = touch2_2.clientX - rect2.left;
+        const y2_2 = touch2_2.clientY - rect2.top;
+        handleClick(x2_1, y2_1, 4); // Add 4 points for two finger touch
+        handleClick(x2_2, y2_2, 4); // Add 4 points for two finger touch
+        break;
+      case 3:
+        const touch3_1 = e.touches[0];
+        const touch3_2 = e.touches[1];
+        const touch3_3 = e.touches[2];
+        const rect3 = e.currentTarget.getBoundingClientRect();
+        const x3_1 = touch3_1.clientX - rect3.left;
+        const y3_1 = touch3_1.clientY - rect3.top;
+        const x3_2 = touch3_2.clientX - rect3.left;
+        const y3_2 = touch3_2.clientY - rect3.top;
+        const x3_3 = touch3_3.clientX - rect3.left;
+        const y3_3 = touch3_3.clientY - rect3.top;
+        handleClick(x3_1, y3_1, 6); // Add 6 points for three finger touch
+        handleClick(x3_2, y3_2, 6); // Add 6 points for three finger touch
+        handleClick(x3_3, y3_3, 6); // Add 6 points for three finger touch
+        break;
+      default:
+        // Handle other cases if needed
+        break;
+    }
+  };
 
   // useEffect hook to restore energy over time
   useEffect(() => {
     const interval = setInterval(() => {
-      setEnergy((prevEnergy) => Math.min(prevEnergy + 1, level_points ));
+      setEnergy((prevEnergy) => Math.min(prevEnergy + 1, level_points));
     }, 100); // Restore 10 energy points every second
 
     return () => clearInterval(interval); // Clear interval on component unmount
@@ -117,11 +116,9 @@ const App = () => {
       <div className="w-full z-10 min-h-screen flex flex-col items-center text-white">
 
         <div className="fixed top-0 left-0 w-full px-4 pt-8 z-10 flex flex-col items-center text-white">
-          <div className="mt-12 text-5xl font-bold flex items-center">
-            <img src={coin} width={44} height={44} />
-            <span className="ml-2">{points.toLocaleString()}</span>
-          </div>
-          <div className="text-base mt-2 flex items-center">
+          <div className="mt-12 text-5xl font-bold flex items-center justify-center flex-col">
+            {/* <span>{points.toLocaleString()}</span> */}
+            {/* <img src={coin} width={44} height={44} className="mt-2" alt="coin" /> */}
           </div>
         </div>
 
@@ -139,17 +136,17 @@ const App = () => {
             <div className="flex-grow flex items-center max-w-60 text-sm">
               <div className="w-full bg-[#fad258] py-4 rounded-2xl flex justify-around">
                 <button className="flex flex-col items-center gap-1">
-                  <img src={bear} width={24} height={24} alt="High Voltage" />
+                  <img src={bear} width={24} height={24} alt="Bear" />
                   <span>Frens</span>
                 </button>
                 <div className="h-[48px] w-[2px] bg-[#fddb6d]"></div>
                 <button className="flex flex-col items-center gap-1">
-                  <img src={coin} width={24} height={24} alt="High Voltage" />
+                  <img src={coin} width={24} height={24} alt="Coin" />
                   <span>Earn</span>
                 </button>
                 <div className="h-[48px] w-[2px] bg-[#fddb6d]"></div>
                 <button className="flex flex-col items-center gap-1">
-                  <img src={rocket} width={24} height={24} alt="High Voltage" />
+                  <img src={rocket} width={24} height={24} alt="Rocket" />
                   <span>Boosts</span>
                 </button>
               </div>
@@ -160,7 +157,7 @@ const App = () => {
           </div>
         </div>
 
-        <div className="flex-grow flex items-center justify-center">
+        <div className="flex-grow flex items-center justify-center flex-col">
           <div className="relative mt-4" onClick={handleMouseClick} onTouchStart={handleTouchStart}>
             <img src={notcoin} width={160} height={180} className={notcoinPressed ? "notcoin-pressed" : ""} alt="notcoin" />
             {clicks.map((click) => (
@@ -177,6 +174,10 @@ const App = () => {
                 {pointsToAdd}
               </div>
             ))}
+          </div>
+          <div className="mt-8 ml-3 flex items-center justify-center">
+            <img src={coin} width={44} height={44} alt="coin" />
+            <span className="ml-1 text-3xl font-bold">{points.toLocaleString()}</span>
           </div>
         </div>
 
