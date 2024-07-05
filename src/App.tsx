@@ -162,7 +162,7 @@ const App = () => {
 
         <div className="flex-grow flex items-center justify-center">
           <div className="relative mt-4" onClick={handleMouseClick} onTouchStart={handleTouchStart}>
-            <img src={notcoin} width={150} height={200} className={notcoinPressed ? "notcoin-pressed" : ""} alt="notcoin" />
+            <img src={notcoin} width={250} height={300} className={notcoinPressed ? "notcoin-pressed" : ""} alt="notcoin" />
             {clicks.map((click) => (
               <div
                 key={click.id}
