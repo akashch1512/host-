@@ -240,6 +240,13 @@ The game is a tap-to-earn style game where players progress through 7 levels ins
 This should give your team a comprehensive overview of the game concept, mechanics, and design elements required to bring the game to life. If you need any additional details or further adjustments, please let me know!
 
 
+## ☕ **Support My Journey! ✨**  
+
+If you love my work, consider **buying me a coffee ☕**. Your support inspires creativity and keeps me going! 💛  
+
+[![Buy Me a Coffee](https://img.shields.io/badge/Buy%20Me%20a%20Coffee-ffdd00?style=flat&logo=coffee&logoColor=black)](https://razorpay.me/@pycraftr)  
+
+Every coffee counts! 🚀
 
 
 
